@@ -40,7 +40,7 @@ jobs:
       working-directory: ./yet_another_weather_app
       run: mvn clean test
 
-    - name: Deploy
+    - name: Deploy the server
       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
