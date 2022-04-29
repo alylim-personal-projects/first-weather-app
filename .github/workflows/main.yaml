@@ -40,9 +40,9 @@ jobs:
       run: mvn clean test
 
     - name: Deploy
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-          with:
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: $${{secrets.heroku_app_name}} #Must be unique in Heroku
-            heroku_email: $${{secrets.heroku_email}}
-            branch: $${{github.ref_name}}
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: $${{secrets.heroku_app_name}} #Must be unique in Heroku
+          heroku_email: $${{secrets.heroku_email}}
+          branch: $${{github.ref_name}}
