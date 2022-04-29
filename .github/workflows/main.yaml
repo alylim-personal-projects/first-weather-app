@@ -9,7 +9,7 @@ jobs:
   echo_the_date:
     runs-on: ubuntu-latest
     env:
-      OPENWEATHERMAP_KEY: ${{ secrets.OPENWEATHERMAP_API}}
+      OPENWEATHERMAP_KEY: ${{secrets.OPENWEATHERMAP_API}}
 
     steps:
     - name: echo the date
@@ -38,3 +38,12 @@ jobs:
     - name: Run test
       working-directory: ./yet_another_weather_app
       run: mvn clean test
+
+    - name: Deploy
+      uses: actions/checkout@v2
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+          with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: $${{secrets.heroku_app_name}} #Must be unique in Heroku
+            heroku_email: $${{secrets.heroku_email}}
+            branch: $${{github.ref_name}}
