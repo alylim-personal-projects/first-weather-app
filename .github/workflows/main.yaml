@@ -8,8 +8,7 @@ on:
 jobs:
   echo_the_date:
     runs-on: ubuntu-latest
-    env:
-      OPENWEATHERMAP_KEY: ${{secrets.OPENWEATHERMAP_API}}
+
 
     steps:
     - name: echo the date
@@ -19,6 +18,8 @@ jobs:
 
   test_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      OPENWEATHERMAP_KEY: ${{secrets.OPENWEATHERMAP_API}}
 
     steps:
     - name: Setup JDK 18
