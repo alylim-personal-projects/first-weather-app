@@ -36,5 +36,5 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Run test
-      run: cd yet_another_weather_app 
+      working-directory: ./yet_another_weather_app
       run: mvn clean test
